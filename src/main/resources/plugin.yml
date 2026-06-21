@@ -1,0 +1,13 @@
+name: PlayerBucket
+version: '${version}'
+
+main: lev.playerBucket.purpur.PlayerBucketPurPur
+api-version: '1.21'
+load: POSTWORLD
+description: Catch players in buckets!
+authors: [lev]
+
+commands:
+  escape:
+    description: Escape from a bucket you're caught in
+    usage: /escape

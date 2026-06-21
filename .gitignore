@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+
+# Gradle
+.gradle/
+build/
+
+# IDEs
+out/
+.idea/
+*.iml
+.idea_modules/
+.vscode/
+.classpath
+.project
+.settings/
+
+# Java crash and diagnostic files
+hs_err_pid*
+replay_pid*
+*.hprof
+
+# Logs
+*.log
+logs/
+
+# Local Minecraft/Paper/Purpur run server directory
+run/

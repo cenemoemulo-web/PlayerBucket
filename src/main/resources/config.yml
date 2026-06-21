@@ -1,0 +1,39 @@
+# PlayerBucket Configuration
+
+# Kept for compatibility with old configs. New catches show the math problem immediately.
+escape_cooldown_seconds: 10
+
+# Milliseconds after catching a player before the bucket can release them.
+# This prevents the same right-click input from catching and immediately releasing.
+release_input_cooldown_millis: 500
+
+# Whether ops can be caught (true = everyone can be caught)
+allow_catching_ops: true
+
+# Seconds after player-vs-player damage where bucket catching is disabled for both players
+pvp_bucket_block_seconds: 15
+
+# Radius around each fighting player where bucket catching is disabled while combat is active
+pvp_bucket_zone_radius: 12.0
+
+# Messages (use & for color codes)
+messages:
+  caught_catcher: "&bYou caught &f%player%&b in a bucket!"
+  caught_victim: "&cYou were caught by &f%catcher%&c! You are now seeing their POV."
+  escape_problem: "&eSolve to escape: &f%problem%"
+  answer_in_chat: "&7Type only the full-number answer in chat. Do not use /."
+  released_catcher: "&bYou released &f%player%&b from the bucket!"
+  released_victim: "&aYou were released from the bucket!"
+  stored_in_chest: "&eThe player bucket was stored in the container."
+  released_lava: "&cThe bucket burned in lava - you were released on nearby land!"
+  released_despawn: "&eThe bucket despawned - you were released!"
+  released_chunk: "&eYou were released because the area unloaded."
+  escaped_victim: "&aYou escaped from the bucket!"
+  escaped_catcher: "&e%player% escaped from your bucket!"
+  already_caught: "&c%player% is already in a bucket!"
+  already_holding: "&cYou already have a player in your bucket!"
+  op_immune: "&c%player% is immune to being caught!"
+  pvp_blocked: "&cYou cannot catch players inside an active PvP area. Wait &f%remaining%&c second(s)."
+  escape_not_caught: "&cYou are not caught in a bucket!"
+  escape_cooldown: "&cYou must wait &f%remaining%&c more second(s) before escaping!"
+  math_wrong: "&cWrong answer! Try again."
