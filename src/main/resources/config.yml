@@ -1,8 +1,5 @@
 # PlayerBucket Configuration
 
-# Kept for compatibility with old configs. New catches show the math problem immediately.
-escape_cooldown_seconds: 10
-
 # Milliseconds after catching a player before the bucket can release them.
 # This prevents the same right-click input from catching and immediately releasing.
 release_input_cooldown_millis: 500
@@ -35,5 +32,4 @@ messages:
   op_immune: "&c%player% is immune to being caught!"
   pvp_blocked: "&cYou cannot catch players inside an active PvP area. Wait &f%remaining%&c second(s)."
   escape_not_caught: "&cYou are not caught in a bucket!"
-  escape_cooldown: "&cYou must wait &f%remaining%&c more second(s) before escaping!"
   math_wrong: "&cWrong answer! Try again."

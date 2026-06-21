@@ -59,7 +59,6 @@ public class PlayerBucket extends JavaPlugin implements Listener, CommandExecuto
 
     private final Map<UUID, UUID> caughtToCatcher = new HashMap<>();
     private final Map<UUID, UUID> catcherToCaught = new HashMap<>();
-    private final Map<UUID, Long> catchTime = new HashMap<>();
     private final Map<UUID, BukkitTask> freezeTasks = new HashMap<>();
     private final Map<UUID, Location> frozenAt = new HashMap<>();
     private final Map<UUID, String> mathAnswers = new ConcurrentHashMap<>();
@@ -71,7 +70,6 @@ public class PlayerBucket extends JavaPlugin implements Listener, CommandExecuto
     private final Map<CombatPair, Long> pvpZones = new HashMap<>();
 
     private NamespacedKey caughtUuidKey;
-    private long escapeCooldownMs;
     private long releaseInputCooldownMs;
     private long pvpBlockMillis;
     private double pvpZoneRadius;
@@ -101,7 +99,6 @@ public class PlayerBucket extends JavaPlugin implements Listener, CommandExecuto
 
     private void loadConfigValues() {
         reloadConfig();
-        escapeCooldownMs = getConfig().getLong("escape_cooldown_seconds", 10L) * 1000L;
         releaseInputCooldownMs = getConfig().getLong(
                 "release_input_cooldown_millis", DEFAULT_RELEASE_INPUT_COOLDOWN_MS);
         pvpBlockMillis = getConfig().getLong("pvp_bucket_block_seconds", 15L) * 1000L;
@@ -205,7 +202,6 @@ public class PlayerBucket extends JavaPlugin implements Listener, CommandExecuto
         Location caughtLocation = caught.getLocation().clone();
         caughtToCatcher.put(caughtId, catcherId);
         catcherToCaught.put(catcherId, caughtId);
-        catchTime.put(caughtId, System.currentTimeMillis());
         frozenAt.put(caughtId, caughtLocation);
         releaseInputBlockedUntil.put(catcherId, System.currentTimeMillis() + releaseInputCooldownMs);
         originalGameModes.put(caughtId, caught.getGameMode());
@@ -545,7 +541,6 @@ public class PlayerBucket extends JavaPlugin implements Listener, CommandExecuto
         GameMode originalGameMode = originalGameModes.remove(caughtId);
         cleanupBucketItems(caughtId);
         caughtToCatcher.remove(caughtId);
-        catchTime.remove(caughtId);
         frozenAt.remove(caughtId);
         mathAnswers.remove(caughtId);
         containerReleaseLocations.remove(caughtId);
